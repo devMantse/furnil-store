@@ -108,6 +108,7 @@ function ProductCard({ product }) {
 ## Home Screen & Product Listing
 <p float="left">
   <img src="./assets/images/screenshot.png" width="250" alt="Home Screen"/>
+   <img src="./assets/images/screenshot2.png" width="250" alt="Home Screen"/>
 
 </p>
 
