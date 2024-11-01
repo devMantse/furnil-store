@@ -1,50 +1,129 @@
-# Welcome to your Expo app 👋
+# 🛋️ Furnil Store - Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern furniture shopping experience built with React Native and Expo. Browse, search, and discover beautiful furniture pieces for your home.
 
-## Get started
+## 📱 Features
 
-1. Install dependencies
+- **Browse Furniture**: Explore a wide range of furniture categories
+- **Product Details**: View detailed product information, materials, and pricing
+- **Search & Filter**: Find exactly what you're looking for
+- **Shopping Cart**: Easy-to-use cart functionality
+- **Clean UI**: Modern, minimalist design with smooth animations
+- **Responsive Layout**: Optimized for various screen sizes
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Tech Stack
 
-2. Start the app
+- **Framework**: [React Native](https://reactnative.dev/) with [Expo](https://expo.dev/)
+- **Styling**: [NativeWind](https://www.nativewind.dev/) (Tailwind CSS for React Native)
+- **State Management**: [TanStack Query](https://tanstack.com/query/latest) (formerly React Query)
+- **API Client**: [Axios](https://axios-http.com/)
+- **Backend**: [MockAPI](https://mockapi.io/) for rapid prototyping
+- **Navigation**: [Expo Router](https://docs.expo.dev/routing/introduction/)
 
-   ```bash
-    npx expo start
-   ```
+## 📋 Prerequisites
 
-In the output, you'll find options to open the app in a
+Before you begin, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v16 or later)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- [Git](https://git-scm.com/)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🚀 Getting Started
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+1. **Clone the repository**
 ```bash
-npm run reset-project
+git clone https://github.com/yourusername/furnil-store.git
+cd furnil-store
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. **Install dependencies**
+```bash
+npm install
+```
 
-## Learn more
+3. **Set up environment variables**
+```bash
+cp .env.example .env
+```
+Update the `.env` file with your MockAPI credentials and other configuration.
 
-To learn more about developing your project with Expo, look at the following resources:
+4. **Start the development server**
+```bash
+npx expo start
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 📁 Project Structure
 
-## Join the community
+```
+furnil-store/
+├── app/                    # Expo Router pages
+├── assets/                 # Static assets (images, fonts)
+├── components/             # Reusable React components
+├── hooks/                  # Custom hooks including API queries
+├── services/              # API and other external services
+├── styles/                # Global styles and theme
+└── types/                 # TypeScript type definitions
+```
 
-Join our community of developers creating universal apps.
+## 🔄 API Integration
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The app uses TanStack Query for API state management:
+
+```javascript
+// Example product query hook
+export const useGetProducts = () => {
+  return useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
+      const response = await axios.get('/products');
+      return response.data;
+    }
+  });
+};
+```
+
+## 🎨 Styling
+
+We use NativeWind (Tailwind CSS) for styling. Example component:
+
+```javascript
+function ProductCard({ product }) {
+  return (
+    <View className="bg-white p-4 rounded-xl shadow-sm">
+      <Image
+        source={{ uri: product.image }}
+        className="w-full h-48 rounded-lg"
+      />
+      <Text className="text-lg font-medium mt-2">
+        {product.name}
+      </Text>
+    </View>
+  );
+}
+```
+
+## 📱 Screenshots
+
+[Add your app screenshots here]
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+npm test
+```
+
+## 📦 Building for Production
+
+1. **Configure app.json**
+Update the `app.json` with your app's information.
+
+2. **Build for iOS**
+```bash
+npx expo build:ios
+```
+
+3. **Build for Android**
+```bash
+npx expo build:android
+```
