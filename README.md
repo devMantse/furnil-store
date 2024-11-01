@@ -103,7 +103,16 @@ function ProductCard({ product }) {
 
 ## 📱 Screenshots
 
-[Add your app screenshots here]
+<div align="center">
+
+## Home Screen & Product Listing
+<p float="left">
+  <img src="./assets/images/screenshot.png" width="250" alt="Home Screen"/>
+
+</p>
+
+
+</div>
 
 ## 🧪 Testing
 
